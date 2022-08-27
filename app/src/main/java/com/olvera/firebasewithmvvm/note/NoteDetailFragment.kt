@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.olvera.firebasewithmvvm.R
 import com.olvera.firebasewithmvvm.databinding.FragmentNoteDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteDetailFragment : Fragment() {
 
     val TAG: String = "NoteDetailFragment"
@@ -18,7 +20,6 @@ class NoteDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNoteDetailBinding.inflate(layoutInflater)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
