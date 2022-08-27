@@ -20,7 +20,6 @@ class NoteDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNoteDetailBinding.inflate(layoutInflater)
-        // Inflate the layout for this fragment
         return binding.root
     }
 

@@ -22,9 +22,7 @@ class NoteListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentNoteListingBinding.inflate(layoutInflater)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -38,5 +36,4 @@ class NoteListingFragment : Fragment() {
             }
         }
     }
-
 }
