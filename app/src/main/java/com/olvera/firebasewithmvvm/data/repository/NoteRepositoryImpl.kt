@@ -2,30 +2,21 @@ package com.olvera.firebasewithmvvm.data.repository
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.olvera.firebasewithmvvm.data.model.Note
+import com.olvera.firebasewithmvvm.util.UiState
 import java.util.*
 
 class NoteRepositoryImpl(
     val database: FirebaseFirestore
 ): NoteRepository {
 
-    override fun getNotes(): List<Note> {
+    override fun getNotes(): UiState<List<Note>> {
         //We will get data from firebase
-        return arrayListOf(
-            Note(
-                id= "fdasf",
-                text = "Note 1",
-                date = Date()
-            ),
-            Note(
-                id= "fdasf",
-                text = "Note 2",
-                date = Date()
-            ),
-            Note(
-                id= "fdasf",
-                text = "Note 2",
-                date = Date()
-            )
-        )
+        val data = listOf<Note>()
+
+        if (data.isEmpty()) {
+            return UiState.Failure("Data is Empty")
+        } else {
+            return UiState.Success(data)
+        }
     }
 }
