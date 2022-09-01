@@ -1,6 +1,5 @@
 package com.olvera.firebasewithmvvm.note
 
-import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,11 +18,22 @@ class NoteViewModel @Inject constructor(
     val note: LiveData<UiState<List<Note>>>
         get() = _notes
 
+    private val _addNote = MutableLiveData<UiState<String>>()
+    val addNote: LiveData<UiState<String>>
+        get() = _addNote
+
     fun getNotes() {
         _notes.value = UiState.Loading
-        android.os.Handler(Looper.getMainLooper()).postDelayed({
-            _notes.value = repository.getNotes()
-        }, 2000)
+        repository.getNotes {
+            _notes.value = it
+        }
+    }
+
+    fun addNote(note: Note) {
+        _addNote.value = UiState.Loading
+        repository.addNote(note) {
+            _addNote.value = it
+        }
     }
 
 }
