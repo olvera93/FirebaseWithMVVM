@@ -13,4 +13,17 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="TextStyle">
+        <item name="android:fontFamily">@font/titillium_web_regular</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TitleStyle">
+        <item name="android:fontFamily">@font/titillium_web_bold</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+
 </resources>
