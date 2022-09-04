@@ -51,4 +51,23 @@ class NoteRepositoryImpl(
                 )
             }
     }
+
+    override fun updateNote(note: Note, result: (UiState<String>) -> Unit) {
+        val document = database.collection(FireStoreTables.NOTE).document(note.id)
+        document
+
+            .set(note)
+            .addOnSuccessListener {
+                result.invoke(
+                    UiState.Success("Note has been updated successfully")
+                )
+            }
+            .addOnFailureListener {
+                result.invoke(
+                    UiState.Failure(
+                        it.localizedMessage
+                    )
+                )
+            }
+    }
 }
